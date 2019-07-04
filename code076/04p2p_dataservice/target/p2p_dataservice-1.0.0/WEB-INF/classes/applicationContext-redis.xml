@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--jedis工厂-->
+    <bean class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" id="connectionFactory" >
+        <property name="usePool" value="true" />
+        <property name="hostName" value="192.168.116.130" />
+        <property name="port" value="6379" />
+        <property name="timeout" value="6000" />
+        <property name="password" value="123456" />
+    </bean>
+
+    <!--redis实例化-->
+    <bean class="org.springframework.data.redis.core.RedisTemplate" id="redisTemplate" >
+        <property name="connectionFactory" ref="connectionFactory" />
+    </bean>
+
+</beans>

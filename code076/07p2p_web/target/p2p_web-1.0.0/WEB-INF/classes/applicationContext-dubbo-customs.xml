@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="p2p_web" />
+    <dubbo:registry address="zookeeper://192.168.116.130:2181" />
+    <!--声明使用的接口和创建的代理对象-->
+    <dubbo:reference interface="com.bjpowernode.p2p.service.LoanInfoService" version="1.0"
+                     id="loanInfoService" check="false" />
+    <dubbo:reference interface="com.bjpowernode.p2p.service.UserService" version="1.0"
+                     id="userService" check="false" />
+    <dubbo:reference interface="com.bjpowernode.p2p.service.BidInfoService" version="1.0"
+                     id="bidInfoService" check="false" />
+</beans>
